@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de peliculas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">EditarPelicula</a>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/pelicula}">Editar peliculas</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            
+                    <h1 class="text-center">Registro de Peliculas</h1>
+                    <div class="card-body"></div>
+                    <form th:action="@{/pelicula/editar/{id}(id=${pelicula.id})}" th:object="${pelicula}" method="POST">
+                        <div class="form-group">
+                            <label for="nombre">titulo</label>
+                            <input type="text" name="titulo" th:field="*{titulo}" class="form-control" placeholder="Digite el titulo" required>
+                          <br>         
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido_paterno">genero</label>
+                            <input type="text" name="genero" th:field="*{genero}" class="form-control" placeholder="Digite el genero" required>
+                         <br> 
+                        </div>
+                        <div class="form-group">
+                            <label for="pais">pais</label>
+                            <input type="text" name="pais" th:field="*{pais}" class="form-control" placeholder="Digite el pais:" required>
+                         <br> 
+                        </div>
+                        <div class="form-group">
+                            <label for="director">director</label>
+                            <input type="text" name="director" th:field="*{director}" class="form-control" placeholder="Digite el director:" required>
+                         <br> 
+                        </div>
+                        <div class="form-group">
+                            <label for="anio">año</label>
+                            <input type="text" name="anio" th:field="*{anio}" class="form-control" placeholder="Digite el año:" required>
+                         <br>           
+                        </div>
+                        
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                    </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
